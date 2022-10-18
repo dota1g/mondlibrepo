@@ -18,6 +18,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+.error {color: #FF0000;}
   </style>
       <script type="text/javascript">
         var opacity = 0;
@@ -41,6 +42,69 @@
         }
     </script>
 
+    <?php 
+    session_start();
+          //login
+      $username = $password = "";
+      //register
+      $fname = $lname = $email = $regusern = $regpass = "";
+      //error codes
+      $fnameErr = $lnameErr = $emailErr = $reguserErr = $regpassErr = "";
+
+
+      if($_SERVER["REQUEST_METHOD"]=="POST"){
+          
+        $valid = true;
+
+              $fname = test_input($_POST["fname"]);
+              if (!preg_match("/^[a-zA-Z-' ]*$/",$fname)){
+              $valid = false;
+              $fnameErr = "Special characters are not allowed!";
+            }
+          
+
+              $lname = test_input($_POST["lname"]);
+              if (!preg_match("/^[a-zA-Z-' ]*$/",$lname)){
+              $valid = false;
+              $fnameErr = "Special characters are not allowed!";
+            }
+            
+              $email = test_input($_POST["email"]);
+              if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+              $valid = false;
+              $emailErr = "Invalid email format";
+              }
+          
+        
+            $regusern = test_input($_POST["regusern"]);
+            if (!preg_match('/^[a-z\d_]{2,20}$/i', $regusern)) {
+            $valid = false;
+            $reguserErr = "Invalid username format";
+            }
+
+            $regpass = test_input($_POST["regpass"]);
+            
+            if($valid){
+              $_SESSION['fname'] = $fname;
+              $_SESSION['lname'] = $lname;
+              $_SESSION['email'] = $email;
+              $_SESSION['regusern'] = $regusern;
+              $_SESSION['regpass'] = $regpass;
+              header('location:registerconfirm.php');
+              exit();
+          }
+
+      }
+
+      function test_input($data) {
+              $data = trim($data);
+              $data = stripslashes($data);
+              $data = htmlspecialchars($data);
+              return $data;
+              }
+    
+    ?>
+
 <body>
 
   <div class="container-fluid  text-white text-center" >
@@ -52,42 +116,47 @@
       <h3 class="text-center">Register</h3>
     <p></p>
       
-    <form action="/action_page.php" class="was-validated">
+    <form action="" class="was-validated" method="POST">
       <div class="mb-3 mt-3">
         <label for="fname" class="form-label">First name:</label>
-        <input type="text" class="form-control" id="uname" placeholder="Enter first name" name="fname" required>
+        <input type="text" class="form-control" id="fname" placeholder="Enter first name" name="fname" autocomplete="off" required>
+        <!-- <div class="invalid-feedback">First name is required.</div> -->
+        <span class="error"> <?PHP echo $fnameErr; ?> </span>
         <div class="valid-feedback"></div>
-        <div class="invalid-feedback">Please fill out this field.</div>
       </div>
       <div class="mb-3 mt-3">
         <label for="fname" class="form-label">Last name:</label>
-        <input type="text" class="form-control" id="uname" placeholder="Enter last name" name="lname" required>
+        <input type="text" class="form-control" id="lname" placeholder="Enter last name" name="lname" autocomplete="off" required>
+        <!-- <div class="invalid-feedback">Last name is required.</div> -->
+        <span class="error"> <?PHP echo $fnameErr; ?> </span>
         <div class="valid-feedback"></div>
-        <div class="invalid-feedback">Please fill out this field.</div>
+        
       </div>
       <div class="mb-3 mt-3">
         <label for="fname" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="uname" placeholder="name@example.com" name="lname" required>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" autocomplete="off" required>
+        <!-- <div class="invalid-feedback">Email is required.</div> -->
+        <span class="error"> <?PHP echo $emailErr; ?> </span>
         <div class="valid-feedback"></div>
-        <div class="invalid-feedback">Please fill out this field.</div>
       </div>
       <div class="mb-3 mt-3">
         <label for="fname" class="form-label">Username</label>
-        <input type="text" class="form-control" id="uname" placeholder="Username must contain 2-20 characters, a-z and/or underscore." name="uname" required>
+        <input type="text" class="form-control" id="uname" placeholder="Username must contain 2-20 characters, a-z and/or underscore." name="regusern" autocomplete="off" required>
+        <!-- <div class="invalid-feedback">Username is required.</div> -->
+        <span class="error"> <?PHP echo $reguserErr; ?> </span>
         <div class="valid-feedback"></div>
-        <div class="invalid-feedback">Please fill out this field.</div>
       </div>
       <div class="mb-3">
         <label for="pwd" class="form-label">Password:</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="regpass" autocomplete="off" required>
+        <!-- <div class="invalid-feedback">Password is required.</div> -->
+        <span class="error"> <?PHP echo $regpassErr; ?> </span>
         <div class="valid-feedback"></div>
-        <div class="invalid-feedback">Please fill out this field.</div>
       </div>
       <div class="form-check mb-3">
         <input class="form-check-input" type="checkbox" id="myCheck"  name="remember" required>
         <label class="form-check-label" for="myCheck">I agree on KOF Library Terms and Conditions.</label>
         <div class="valid-feedback"></div>
-        <div class="invalid-feedback">Required.</div>
       </div>
       <div class="mb-3">
       <label for="pwd" class="form-label">Already a member? <a href="index.php">Login here!</a></label>
