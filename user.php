@@ -23,7 +23,9 @@
             });
         });
 </script>
-
+<?php 
+session_start();
+?>
 <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -32,7 +34,7 @@
             </div>
 
             <ul class="list-unstyled components">
-                <h4> Welcome, user!</h4>
+                <h4> Welcome, <?php echo $_SESSION['username']; ?></h4>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">

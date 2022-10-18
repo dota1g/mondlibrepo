@@ -22,6 +22,8 @@
 
 </style>
       <script type="text/javascript">
+        //Please use JavaScript for validation error handling. I don't want to deal with PHP drawbacks with those.
+        //Use validation.php file for PHP validation/specialchar stripping.
         var opacity = 0;
         var intervalID = 0;
         window.onload = fadeIn;
@@ -43,6 +45,31 @@
         }
     </script>
 
+<?php 
+session_start();
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+  }
+
+$userval = "fuckthisshit";
+$passval = "anomaly";
+$user = test_input($_POST["uname"]);
+$pass = test_input($_POST["pswd"]);
+$error = "";
+
+if ($user == $userval && $pass == $passval){
+  $_SESSION['username'] = $user; 
+  header('location:user.php');
+}
+else if($user == $userval || $pass == $passval) {
+    $error = "Wrong username or password!";
+}
+?>
+
 <body>
 
   <div class="container-fluid  text-white text-center" >
@@ -56,9 +83,9 @@
     </div>
     <div id ="mainui" class="col-sm-4" style="background: #edebe4; border-radius: 25px; padding: 50px;" style="opacity:0;" >
       <h3 class="text-center">Login</h3>
-    <p></p>
+    <p class="text-center"><?php echo $error; ?></p>
       
-    <form action="/action_page.php" class="was-validated">
+    <form action="" class="was-validated" method="POST">
       <div class="mb-3 mt-3">
         <label for="uname" class="form-label">Username:</label>
         <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
