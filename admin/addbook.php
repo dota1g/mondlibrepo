@@ -54,32 +54,7 @@
             <img src="koflib.png" width="100%" height="100%" class="center">
             </div>
 
-            <ul class="list-unstyled components">
-                <h4> Welcome, admin!</h4>
-                <li>
-                    <a href="admin.php">Home</a>
-                </li>
-                <li>
-                    <a href="booksearch.php">Search books</a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Book Management</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="addbook.php">Add books</a>
-                        </li>
-                        <li>
-                            <a href="deletebooks.php">Delete books</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="borreq.php" class="active">Borrow Requests</a>
-                </li>
-                <!-- <li>
-                    <a href="#">Edit profile</a>
-                </li> -->
-            </ul>
+
 
             <ul class="list-unstyled CTAs">
                 <li>
@@ -108,31 +83,40 @@
             </nav>
             <div class="line"></div>
 
-            <h2 style="text-align:center;">Remove books</h2>
-            <div class="search">
-                <input type="text" class="searchTerm" placeholder="Search any books for removal">
-                <input type="submit" class="searchButton" value="Search">
-            </div>
-            <br> <br>
-            <table id="table">
-                <tr>
-                    <th>BookID</th>
-                    <th>ISBN</th>
-                    <th>Book Name</th>
-                    <th>Author(s)</th>
-                    <th>Publisher</th>
-                    <th>Pages</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td>15</td>
-                    <td>9783879123397</td>
-                    <td>Bibliography of Gunnhildr</td>
-                    <td>Jean Gunnhildr</td>
-                    <td>SABR</td>
-                    <td>102</td>
-                    <td><input type="submit" value="Delete"></td>
-                </tr>
+            <form action="" class="was-validated" method="POST">
+      <div class="mb-3 mt-3">
+        <label for="fname" class="form-label">ISBN:</label>
+        <input type="number" class="form-control"  required>
+        <div class="valid-feedback"></div>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="fname" class="form-label">Book Name:</label>
+        <input type="text" class="form-control" required>
+        <div class="valid-feedback"></div>
+        
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="fname" class="form-label">Authors:</label>
+        <input type="text" class="form-control"  required>
+        <div class="valid-feedback"></div>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="fname" class="form-label">Publisher</label>
+        <input type="text" class="form-control"  required>
+        <div class="valid-feedback"></div>
+      </div>
+      <div class="mb-3">
+        <label for="pwd" class="form-label">Category:</label>
+        <input type="text" class="form-control" required>
+        <div class="valid-feedback"></div>
+      </div>
+      <div class="mb-3">
+        <label for="pwd" class="form-label">Pages:</label>
+        <input type="number" class="form-control"  required>
+        <div class="valid-feedback"></div>
+      </div>
+      
+    <button type="submit" class="btn btn-primary">Add book</button>
             </table>
         </div>
     </div>

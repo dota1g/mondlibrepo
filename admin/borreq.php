@@ -57,7 +57,7 @@
             <ul class="list-unstyled components">
                 <h4> Welcome, admin!</h4>
                 <li>
-                    <a href="">Home</a>
+                    <a href="admin.php">Home</a>
                 </li>
                 <li>
                     <a href="booksearch.php">Search books</a>
@@ -66,24 +66,24 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Book Management</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Add/Edit books</a>
+                            <a href="addbook.php">Add books</a>
                         </li>
                         <li>
-                            <a href="#">Delete books</a>
+                            <a href="deletebooks.php">Delete books</a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <a href="borreq.php" class="active">Borrow Requests</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#">Edit profile</a>
-                </li>
+                </li> -->
             </ul>
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="index.php" class="download">Log out</a>
+                    <a href="/bstest/index.php" class="download">Log out</a>
                 </li>
                 <li>
                     <a href="" class="article">Contact us</a>

@@ -53,20 +53,19 @@
             <div class="sidebar-header">
             <img src="koflib.png" width="100%" height="100%" class="center">
             </div>
-
             <ul class="list-unstyled components">
                 <h4> Welcome, admin!</h4>
-                <li class="active">
-                    <a href="">Home</a>
+                <li>
+                    <a href="admin.php">Home</a>
                 </li>
                 <li>
-                    <a href="#">Search books</a>
+                    <a href="booksearch.php">Search books</a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Book Management</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Book Management</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Add/Edit books</a>
+                            <a href="addbook.php">Add books</a>
                         </li>
                         <li>
                             <a href="deletebooks.php">Delete books</a>
@@ -74,16 +73,16 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Borrow Requests</a>
+                    <a href="borreq.php" class="active">Borrow Requests</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#">Edit profile</a>
-                </li>
+                </li> -->
             </ul>
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="index.php" class="download">Log out</a>
+                    <a href="/bstest/index.php" class="download">Log out</a>
                 </li>
                 <li>
                     <a href="" class="article">Contact us</a>
@@ -104,23 +103,6 @@
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </nav>
             <div class="line"></div>
