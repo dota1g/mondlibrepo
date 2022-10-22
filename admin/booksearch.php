@@ -23,9 +23,30 @@
             });
         });
 </script>
-<?php 
-session_start();
-?>
+<style>
+.search {
+  width: 75%;
+  position: relative;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+}
+.searchTerm {
+  width: 100%;
+  border: 3px solid black;
+  border-right: none;
+  padding: 5px;
+  height: 50px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+
+}
+.searchTerm:focus{
+  color: #00B4CC;
+}
+</style>
+
 <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -34,40 +55,26 @@ session_start();
             </div>
 
             <ul class="list-unstyled components">
-                <h4> Welcome, <?php echo $_SESSION['username']; ?></h4>
+                <h4> Welcome, admin!</h4>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
+                    <a href="">Home</a>
                 </li>
                 <li>
                     <a href="#">Search books</a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reservations</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Book Management</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Page 1</a>
+                            <a href="#">Add/Edit books</a>
                         </li>
                         <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
+                            <a href="deletebooks.php">Delete books</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Borrowing History</a>
+                    <a href="#">Borrow Requests</a>
                 </li>
                 <li>
                     <a href="#">Edit profile</a>
@@ -79,7 +86,7 @@ session_start();
                     <a href="index.php" class="download">Log out</a>
                 </li>
                 <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Contact us</a>
+                    <a href="" class="article">Contact us</a>
                 </li>
             </ul>
         </nav>
@@ -116,25 +123,23 @@ session_start();
                     </div>
                 </div>
             </nav>
-
-            <h2>Welcome to this library!</h2>
-            <h4>WE STILL DON'T HAVE BOOKS YET. PLZ WAIT</h4>
-            <p></p>
-            <p></p>
-
             <div class="line"></div>
-
-            <!-- <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
-
-            <!-- <div class="line"></div>
-
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <div class="line"></div>
-
-            <h3>Lorem Ipsum Dolor</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+            <h2 style="text-align:center;">Search books</h2>
+            
+            <div class="search">
+                <input type="text" class="searchTerm" placeholder="What are you looking for?">
+                <input type="submit" class="searchButton" value="Search">
+            </div>
+            <br> <br>
+            <table id="table">
+                <tr>
+                    <th>BookID</th>
+                    <th>ISBN</th>
+                    <th>Book Name</th>
+                    <th>Author(s)</th>
+                    <th>Publisher</th>
+                    <th>Quantity Available</th>
+                </tr>
+            </table>
         </div>
     </div>

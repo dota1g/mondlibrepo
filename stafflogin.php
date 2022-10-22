@@ -58,14 +58,14 @@ function test_input($data) {
   }
 
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        $userval = "user";
+        $userval = "admin";
         $passval = "1234";
         $user = test_input($_POST["user"]);
         $pass = test_input($_POST["pass"]);
 
         if ($user == $userval && $pass == $passval){
           $_SESSION['username'] = $user; 
-          header('location:user/user.php');
+          header('location:admin/admin.php');
         }
         else if($user == $userval || $pass == $passval) {
             $error = "Wrong username or password!";
@@ -85,10 +85,10 @@ function test_input($data) {
 
     </div>
     <div id ="mainui" class="col-sm-4" style="background: #edebe4; border-radius: 25px; padding: 50px;" style="opacity:0;" >
-      <h3 class="text-center">Login</h3>
+      <h3 class="text-center">Administrator Login</h3>
     <p class="text-center"><?php echo $error; ?></p>
       
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="was-validated" method="POST">
+    <form action="" class="was-validated" method="POST">
       <div class="mb-3 mt-3">
         <label for="uname" class="form-label">Username:</label>
         <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user" required>
@@ -101,16 +101,15 @@ function test_input($data) {
         <div class="valid-feedback"></div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
-      <div class="form-check mb-3">
+      <!-- <div class="form-check mb-3">
         <input class="form-check-input" type="checkbox" id="myCheck"  name="remember" required>
-        <label class="form-check-label" for="myCheck">I agree on KOFLib T&C.</label>
+        <label class="form-check-label" for="myCheck">I agree on blabla.</label>
         <div class="valid-feedback"></div>
-      </div>
+      </div> -->
       <div class="mb-3">
       </div>
     <input type="submit" value="Log in" class="btn btn-primary center"><br>
-    <p style="text-align:center;">Administrators/staffs, please <a href="stafflogin.php">log in here.</a></p>
-    <p style="text-align:center;">Not yet a member? <a href="register.php">Register here!</a></p>
+    <p style="text-align:center;">This is a login page for admins and staffs. <br> If you're a normal user, please <a href="index.php">log in here.</a></p>
     </form>
       </div>
     </div>

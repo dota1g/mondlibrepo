@@ -23,6 +23,29 @@
             });
         });
 </script>
+<style>
+.search {
+  width: 75%;
+  position: relative;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+}
+.searchTerm {
+  width: 100%;
+  border: 3px solid black;
+  border-right: none;
+  padding: 5px;
+  height: 50px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+
+}
+.searchTerm:focus{
+  color: #00B4CC;
+}
+</style>
 
 <div class="wrapper">
         <!-- Sidebar  -->
@@ -32,15 +55,15 @@
             </div>
 
             <ul class="list-unstyled components">
-                <h4 class="center"> Welcome, admin!</h4>
-                <li class="active">
+                <h4> Welcome, admin!</h4>
+                <li>
                     <a href="">Home</a>
                 </li>
                 <li>
-                    <a href="#">Search books</a>
+                    <a href="booksearch.php">Search books</a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Book Management</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Book Management</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
                             <a href="#">Add/Edit books</a>
@@ -51,7 +74,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Borrow Requests</a>
+                    <a href="borreq.php" class="active">Borrow Requests</a>
                 </li>
                 <li>
                     <a href="#">Edit profile</a>
@@ -81,44 +104,30 @@
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </nav>
-
-            <h2>Welcome to this library!</h2>
-            <h4>WE STILL DON'T HAVE BOOKS YET. PLZ WAIT</h4>
-            <p></p>
-            <p></p>
-
             <div class="line"></div>
 
-            <!-- <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
-
-            <!-- <div class="line"></div>
-
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <div class="line"></div>
-
-            <h3>Lorem Ipsum Dolor</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+            <h2 style="text-align:center;">Borrow Requests</h2><br>
+            <table id="table">
+                <tr>
+                    <th>UserID</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>ISBN</th>
+                    <th>Book Name</th>
+                    <th>Request Date</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>9123663</td>
+                    <td>Clayton</td>
+                    <td>Kershaw</td>
+                    <td>9783879123397</td>
+                    <td>Bibliography of Gunnhildr</td>
+                    <td>Oct-20-2022</td>
+                    <td><input type="submit" value="Approve">&nbsp;<input type="submit" value="Reject"></td>
+                </tr>
+            </table>
         </div>
     </div>
